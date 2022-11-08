@@ -13,8 +13,8 @@ public class T2_BankDeposit {
         System.out.print("Input months count: ");
         int months = scan.nextInt();
 
-        for (int i = 0; i <= months; i++) {
-            deposit += Math.round(deposit / 100 * percent);
+        for (int i = 0; i < months; i++) {
+            deposit += deposit / 100 * percent;
         }
 
         System.out.println("Deposit after " + months + " months: " + deposit);
