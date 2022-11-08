@@ -8,7 +8,7 @@ public class T2_BankDeposit {
         int percent = 7;
 
         System.out.print("Input deposit value: ");
-        double deposit = scan.nextInt();
+        double deposit = scan.nextDouble();
 
         System.out.print("Input months count: ");
         int months = scan.nextInt();
