@@ -1,4 +1,4 @@
-package HomeWork.L2;
+package HomeWork.P1_10.L2;
 
 public class T1 {
     public static void main(String[] args) {

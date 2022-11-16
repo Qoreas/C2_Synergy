@@ -1,4 +1,4 @@
-package HomeWork.L4;
+package HomeWork.P1_10.L4;
 
 public class T1_MultiplicationTable {
     public static void main(String[] args) {
