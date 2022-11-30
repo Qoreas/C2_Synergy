@@ -8,6 +8,7 @@ public class T1_FindElement {
         int search = 10;
         int firstIndex = 0;
         int lastIndex = array.length;
+        boolean done = false;
 
         while (firstIndex <= lastIndex) {
             int middle = (firstIndex + lastIndex) / 2;
@@ -19,12 +20,17 @@ public class T1_FindElement {
                 firstIndex = middle + 1;
 
             } else {
+                done = true;
                 result = search;
                 System.out.println("index: " + middle);
                 break;
             }
         }
 
-        System.out.println("Number: " + result);
+        if (done) {
+            System.out.println("Number found: " + result);
+        } else {
+            System.out.println("Number not found");
+        }
     }
 }
