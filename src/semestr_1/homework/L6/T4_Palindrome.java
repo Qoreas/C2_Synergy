@@ -7,7 +7,7 @@ public class T4_Palindrome {
         Scanner scan = new Scanner(System.in);
 
         System.out.print("Input sentence or word: ");
-        String word = scan.nextLine();
+        String word = scan.nextLine().toLowerCase();
         String copy = "";
 
         for (int i = word.length(); i >= 0; i--) {
