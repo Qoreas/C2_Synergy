@@ -1,4 +1,4 @@
-package semestr_2.homework.P1_9.H1;
+package semestr_2.homework.P1_9.HW1;
 
 public class Student {
     public String name;
