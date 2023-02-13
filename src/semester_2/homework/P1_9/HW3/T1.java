@@ -31,14 +31,14 @@ public class T1 {
         testSecondTask();
     }
 
-    public static void raiseException(Integer exceptionId) throws Exception { // Подсказка: throws Exception в итоге надо поменять на перечисление имен исключений
+    public static void raiseException(Integer exceptionId) throws SocketException, ClassNotFoundException, AccessDeniedException, ExportException{ // Подсказка: throws Exception в итоге надо поменять на перечисление имен исключений
         switch (exceptionId) {
             case 1 -> throw new SocketException();
             case 2 -> throw new ClassNotFoundException();
             case 3 -> throw new AccessDeniedException("file");
             case 4 -> throw new ExportException("file");
         }
-        throw new Exception();
+
     }
 
     public static String catchException(Integer integer) {
@@ -52,8 +52,6 @@ public class T1 {
             return "AccessDeniedException";
         } catch (ExportException ex4) {
             return "ExportException";
-        } catch (Exception e) {
-            throw new RuntimeException(e);
         }
         return "Exception";
     }
