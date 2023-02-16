@@ -1,4 +1,4 @@
-package semester_2.classwork.P1_9.CW1;
+package semester_2.classwork.P1_9.W1;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package semester_2.homework.P1_9.HW1;
+package semester_2.homework.P1_9.W1;
 
 public class University {
     public static void main(String[] args) {

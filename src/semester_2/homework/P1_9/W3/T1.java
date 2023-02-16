@@ -1,4 +1,4 @@
-package semester_2.homework.P1_9.HW3;
+package semester_2.homework.P1_9.W3;
 
 import java.net.SocketException;
 import java.nio.file.AccessDeniedException;

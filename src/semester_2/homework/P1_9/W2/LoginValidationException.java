@@ -1,4 +1,4 @@
-package semester_2.homework.P1_9.HW2;
+package semester_2.homework.P1_9.W2;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

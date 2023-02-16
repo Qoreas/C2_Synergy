@@ -1,4 +1,4 @@
-package semester_2.classwork.P1_9.CW2;
+package semester_2.classwork.P1_9.W2;
 
 import java.util.HashMap;
 
