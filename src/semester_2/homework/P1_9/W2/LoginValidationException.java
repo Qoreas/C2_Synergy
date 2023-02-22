@@ -66,9 +66,35 @@ public class LoginValidationException extends Exception {
     }
 
     public static void validateLogin(String login) throws LoginValidationException {
-        boolean checkUnderSpace = login.contains("_");
-        boolean checkLatinNums = login.matches("^[a-zA-Z0-9_]{1,20}$");
-        if (!(checkLatinNums && checkUnderSpace)) {
+        char[] log = login.toCharArray();
+        int len = login.length();
+        boolean underSpaceLength = len < 20 && login.contains("_");
+
+        boolean latinLow = false;
+        for (int i = 0; i < len; i++) {
+            if (log[i] >= 'a' && log[i] <= 'z') {
+                latinLow = true;
+                break;
+            }
+        }
+
+        boolean latinHigh = false;
+        for (int i = 0; i < len; i++) {
+            if (log[i] >= 'A' && log[i] <= 'Z') {
+                latinHigh = true;
+                break;
+            }
+        }
+
+        boolean number = false;
+        for (int i = 0; i < len; i++) {
+            if (log[i] >= '0' && log[i] <= '9') {
+                number = true;
+                break;
+            }
+        }
+
+        if (!(underSpaceLength && latinHigh && latinLow && number)) {
             throw new LoginValidationException();
         }
     }
