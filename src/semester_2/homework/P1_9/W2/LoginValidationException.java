@@ -68,23 +68,10 @@ public class LoginValidationException extends Exception {
     public static void validateLogin(String login) throws LoginValidationException {
         char[] log = login.toCharArray();
         int len = login.length();
+
         boolean underSpaceLength = len < 20 && login.contains("_");
-
-        boolean latinLow = false;
-        for (int i = 0; i < len; i++) {
-            if (log[i] >= 'a' && log[i] <= 'z') {
-                latinLow = true;
-                break;
-            }
-        }
-
-        boolean latinHigh = false;
-        for (int i = 0; i < len; i++) {
-            if (log[i] >= 'A' && log[i] <= 'Z') {
-                latinHigh = true;
-                break;
-            }
-        }
+        boolean latinLow = !login.matches("^[a-z]$");
+        boolean latinHigh = !login.matches("^[A-Z]$");
 
         boolean number = false;
         for (int i = 0; i < len; i++) {
