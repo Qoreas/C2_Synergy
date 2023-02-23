@@ -7,17 +7,17 @@ import java.util.function.Function;
 
 public class T1 {
     /**
-     * пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ1
-     * ?? пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ ???
-     * пїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ stringList, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ.
-     * пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ correctedList(), пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ,
-     *      пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ(пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ).
+     * Задание №1
+     * ?? Нужно создать новый список а не модифировать старый ???
+     * У Вас есть список stringList, элементами которого являются строки.
+     * Необходимо написать метод correctedList(), который создаст и вернет новый список,
+     *      содержащий все строки, не содержащие буквы в верхнем регистре(Заглавные).
      */
 
     /**
-     * пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ2
-     * пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ.
-     * пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ magSort(), пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ 300.
+     * Задание №2
+     * Ивана сортирует в магазине свою корзину покупок.
+     * Необходимо написать метод magSort(), который удалит из корзины все продукты, вес которых больше 300.
      */
 
     public static List<String> correctedList(List<String> stringList) {
@@ -34,17 +34,11 @@ public class T1 {
                 }
             }
 
-            if (!isHave) {
-                list.add(str);
-            }
-
+            if (!isHave) list.add(str);
         }
 
-        if (list.isEmpty()) {
-            return Collections.emptyList();
-        } else {
-            return list;
-        }
+        if (list.isEmpty()) return Collections.emptyList();
+        else return list;
     }
 
     public static HashMap<String, Integer> magSort(HashMap<String, Integer> shopCart) {
@@ -57,7 +51,7 @@ public class T1 {
         testSecondTask();
     }
 
-    /* пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ - пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ */
+    /* ??????????? ?????? - ???? ?????? ?????? ?? ???? */
 
     public static final List<String> STRING_LIST = Arrays.asList(
             "Onee",
@@ -79,23 +73,23 @@ public class T1 {
     public static final HashMap<String, Integer> HASH_MAP = new HashMap<>();
 
     public static HashMap<String, Integer> setMagazine() {
-        HASH_MAP.put("пїЅпїЅпїЅпїЅпїЅпїЅ", 300);
-        HASH_MAP.put("пїЅпїЅпїЅпїЅпїЅ", 456);
-        HASH_MAP.put("пїЅпїЅпїЅ", 80);
-        HASH_MAP.put("пїЅпїЅпїЅпїЅпїЅпїЅ", 650);
-        HASH_MAP.put("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ", 1020);
-        HASH_MAP.put("пїЅпїЅпїЅпїЅпїЅпїЅ", 10);
-        HASH_MAP.put("пїЅпїЅпїЅпїЅпїЅ", 230);
+        HASH_MAP.put("яблоки", 300);
+        HASH_MAP.put("груши", 456);
+        HASH_MAP.put("лук", 80);
+        HASH_MAP.put("свекла", 650);
+        HASH_MAP.put("картошка", 1020);
+        HASH_MAP.put("чеснок", 10);
+        HASH_MAP.put("ягоды", 230);
         return (HASH_MAP);
     }
 
     public static HashMap<String, Integer> HASH_MAP_CHECK = new HashMap<>();
 
     public static HashMap<String, Integer> setlungsCheck() {
-        HASH_MAP_CHECK.put("пїЅпїЅпїЅпїЅпїЅпїЅ", 300);
-        HASH_MAP_CHECK.put("пїЅпїЅпїЅ", 80);
-        HASH_MAP_CHECK.put("пїЅпїЅпїЅпїЅпїЅпїЅ", 10);
-        HASH_MAP_CHECK.put("пїЅпїЅпїЅпїЅпїЅ", 230);
+        HASH_MAP_CHECK.put("яблоки", 300);
+        HASH_MAP_CHECK.put("лук", 80);
+        HASH_MAP_CHECK.put("чеснок", 10);
+        HASH_MAP_CHECK.put("ягоды", 230);
         return (HASH_MAP_CHECK);
     }
 
@@ -158,7 +152,7 @@ public class T1 {
         Function<String, String> green = str -> "\u001B[34m" + str + "\u001B[0m";
         Function<String, String> yellow = str -> "\u001B[33m" + str + "\u001B[0m";
         System.out.println("TEST CASE " + constLen(String.valueOf(n), 4));
-        System.out.println("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ: " + yellow.apply(constLen(exp, minLen)) + "\nпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ: " + green.apply(constLen(act, minLen)));
+        System.out.println("Ожидание: " + yellow.apply(constLen(exp, minLen)) + "\nРеальность: " + green.apply(constLen(act, minLen)));
         if (Objects.equals(exp, act)) {
             System.out.print("TEST RESULT: ?");
         } else {
