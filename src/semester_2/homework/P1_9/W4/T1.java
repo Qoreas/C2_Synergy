@@ -25,10 +25,11 @@ public class T1 {
 
         for (String str : stringList) {
             boolean isHave = false;
-            char[] chars = str.trim().toCharArray();
+            char[] chars = str.toCharArray();
+            char[] checkHigh = str.toUpperCase().toCharArray();
 
             for (int i = 0; i < str.length(); i++) {
-                if (str.toUpperCase().charAt(i) == chars[i] && chars[i] != ' ') {
+                if (checkHigh[i] == chars[i] && chars[i] != ' ') {
                     isHave = true;
                     break;
                 }
@@ -37,7 +38,9 @@ public class T1 {
             if (!isHave) list.add(str);
         }
 
-        if (list.isEmpty()) return Collections.emptyList();
+        if (list.isEmpty()) {
+            return Collections.emptyList();
+        }
         else return list;
     }
 
