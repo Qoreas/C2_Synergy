@@ -1,4 +1,4 @@
-package util;
+package semester_1.util;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;

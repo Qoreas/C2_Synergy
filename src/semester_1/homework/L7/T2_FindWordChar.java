@@ -1,6 +1,6 @@
 package semester_1.homework.L7;
 
-import util.SScan;
+import semester_1.util.SScan;
 
 public class T2_FindWordChar {
     public static void main(String[] args) {
