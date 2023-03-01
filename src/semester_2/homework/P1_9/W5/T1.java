@@ -67,7 +67,13 @@ public class T1 {
 
         @Override
         public void takeDamage(Integer damage) throws Exception {
-            Integer result = getHealth() - (damage - getProtection() - getHealth() % 10);
+            int health = getHealth();
+            int interval = damage - getProtection() - health % 10;
+            int result;
+
+            if (interval > health) result = interval - health;
+            else result = health - interval;
+
             super.takeDamage(result);
         }
 
@@ -89,7 +95,13 @@ public class T1 {
 
         @Override
         public void takeDamage(Integer damage) throws Exception {
-            int result = getHealth() - (damage - getProtection() + getHealth() % 10);
+            int health = getHealth();
+            int interval = damage - getProtection() + health % 10;
+            int result;
+
+            if (interval > health) result = interval - health;
+            else result = health - interval;
+
             super.takeDamage(result);
         }
 
