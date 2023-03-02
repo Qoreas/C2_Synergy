@@ -1,57 +1,118 @@
 package semester_2.homework.P1_9.W6;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Function;
 
 public class T1 {
     public interface Playable {
+        List<String> play();
 
+        List<String> playWith(Playable playable);
     }
 
     public static abstract class Instrument implements Playable {
+        String sound;
+        int times;
 
+        public Instrument(String sound, int times) {
+            this.sound = sound;
+            this.times = times;
+        }
+
+        public String getSound() {
+            return sound;
+        }
+
+        public int getTimes() {
+            return times;
+        }
+
+        @Override
+        public List<String> play() {
+            ArrayList<String> list = new ArrayList<>();
+            StringBuilder str = null;
+
+            str.append((sound + " ").repeat(Math.max(0, times)));
+
+            list.add(str.toString());
+            return list;
+        }
+
+        @Override
+        public List<String> playWith(Playable playable) {
+            ArrayList<String> result =new ArrayList<>();
+
+        }
     }
 
-    public static class Guitar {
-        // Напиши здесь свою реализацию класса Instrument
+    public static class Guitar extends Instrument {
+        public Guitar() {
+            super("Трунь", 2);
+        }
     }
 
-    public static class Drum {
-        // Напиши здесь свою реализацию класса Instrument
+    public static class Drum extends Instrument {
+        public Drum() {
+            super("Бац", 3);
+        }
     }
 
-    public static class Orchestra {
-        // Напиши здесь свою реализацию класса Orchestra
+    public static class Orchestra implements Playable {
+        List<Instrument> list;
+
+        public List<Instrument> getList() {
+            return list;
+        }
+
+        public Orchestra(Instrument... instruments) {
+            list.addAll(Arrays.asList(instruments));
+        }
+
+        @Override
+        public List<String> play() {
+            List<String> result = new ArrayList<>();
+
+            for (Instrument i : list) {
+                result.add(i.play().toString());
+            }
+            return result;
+        }
+
+        @Override
+        public List<String> playWith(Playable playable) {
+
+        }
     }
 
-//    public static void main(String[] args) {
-//        var guitar = new Guitar();
-//        var drum = new Drum();
-//        print("Guitar: Гитара создалась", true);
-//        print("Drum:   Барабан создался", true);
-//        print("Guitar: play Guitar должно быть " + GUITAR_R, Objects.equals(guitar.play().get(0), GUITAR_R));
-//        print("Drum:   play Drum должно быть " + DRUM_R, Objects.equals(drum.play().get(0), DRUM_R));
-//        print("Guitar: playWith Drum первая гитара", Objects.equals(guitar.playWith(drum).get(0), GUITAR_R));
-//        print("Guitar: playWith Drum последний барабан", Objects.equals(guitar.playWith(drum).get(1), DRUM_R));
-//        print("Drum:   playWith Guitar первый барабан", Objects.equals(drum.playWith(guitar).get(0), DRUM_R));
-//        print("Drum:   playWith Guitar последняя гитара", Objects.equals(drum.playWith(guitar).get(1), GUITAR_R));
-//
-//        var emptyOrchestra = new Orchestra();
-//        var orchestra = new Orchestra(new Guitar(), new Drum(), new Guitar(), new Drum());
-//        print("EmptyOrchestra: Пустой оркестр создался", true);
-//        print("EmptyOrchestra: Инструменты должны быть пустым списком", emptyOrchestra.getInstruments() != null);
-//        print("Orchestra: Оркестр создался", true);
-//        print("Orchestra: В оркестре должно быть 4 инструмента", orchestra.getInstruments().size() == 4);
-//        print("Orchestra: Должны сыграть 4 инструмента", orchestra.play().size() == 4);
-//        print("Orchestra: Гитара играет первая", Objects.equals(orchestra.play().get(0), GUITAR_R));
-//        print("Orchestra: Барабан играет второй", Objects.equals(orchestra.play().get(1), DRUM_R));
-//        print("Orchestra: Гитара играет третья", Objects.equals(orchestra.play().get(2), GUITAR_R));
-//        print("Orchestra: Барабан играет четвертый", Objects.equals(orchestra.play().get(3), DRUM_R));
-//        print("Orchestra: Должны сыграть 5 инструментов", orchestra.playWith(new Guitar()).size() == 5);
-//        print("Orchestra: Гитара играет последняя", Objects.equals(orchestra.playWith(new Guitar()).get(4), GUITAR_R));
-//    }
+    public static void main(String[] args) {
+        var guitar = new Guitar();
+        var drum = new Drum();
+        print("Guitar: Гитара создалась", true);
+        print("Drum:   Барабан создался", true);
+        print("Guitar: play Guitar должно быть " + GUITAR_R, Objects.equals(guitar.play().get(0), GUITAR_R));
+        print("Drum:   play Drum должно быть " + DRUM_R, Objects.equals(drum.play().get(0), DRUM_R));
+        print("Guitar: playWith Drum первая гитара", Objects.equals(guitar.playWith(drum).get(0), GUITAR_R));
+        print("Guitar: playWith Drum последний барабан", Objects.equals(guitar.playWith(drum).get(1), DRUM_R));
+        print("Drum:   playWith Guitar первый барабан", Objects.equals(drum.playWith(guitar).get(0), DRUM_R));
+        print("Drum:   playWith Guitar последняя гитара", Objects.equals(drum.playWith(guitar).get(1), GUITAR_R));
+
+        var emptyOrchestra = new Orchestra();
+        var orchestra = new Orchestra(new Guitar(), new Drum(), new Guitar(), new Drum());
+        print("EmptyOrchestra: Пустой оркестр создался", true);
+        print("EmptyOrchestra: Инструменты должны быть пустым списком", emptyOrchestra.getInstruments() != null);
+        print("Orchestra: Оркестр создался", true);
+        print("Orchestra: В оркестре должно быть 4 инструмента", orchestra.getInstruments().size() == 4);
+        print("Orchestra: Должны сыграть 4 инструмента", orchestra.play().size() == 4);
+        print("Orchestra: Гитара играет первая", Objects.equals(orchestra.play().get(0), GUITAR_R));
+        print("Orchestra: Барабан играет второй", Objects.equals(orchestra.play().get(1), DRUM_R));
+        print("Orchestra: Гитара играет третья", Objects.equals(orchestra.play().get(2), GUITAR_R));
+        print("Orchestra: Барабан играет четвертый", Objects.equals(orchestra.play().get(3), DRUM_R));
+        print("Orchestra: Должны сыграть 5 инструментов", orchestra.playWith(new Guitar()).size() == 5);
+        print("Orchestra: Гитара играет последняя", Objects.equals(orchestra.playWith(new Guitar()).get(4), GUITAR_R));
+    }
 
     /* Техническая секция - сюда писать ничего не надо */
 
