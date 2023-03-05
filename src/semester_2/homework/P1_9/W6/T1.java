@@ -1,7 +1,6 @@
 package semester_2.homework.P1_9.W6;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Function;
@@ -22,68 +21,62 @@ public class T1 {
             this.times = times;
         }
 
-        public String getSound() {
-            return sound;
-        }
-
-        public int getTimes() {
-            return times;
-        }
-
         @Override
         public List<String> play() {
-            ArrayList<String> list = new ArrayList<>();
-            StringBuilder str = null;
-
-            str.append((sound + " ").repeat(Math.max(0, times)));
-
-            list.add(str.toString());
+            List<String> list = new ArrayList<>();
+            list.add((sound + " ").repeat(times).strip());
             return list;
         }
 
         @Override
         public List<String> playWith(Playable playable) {
-            ArrayList<String> result =new ArrayList<>();
+            List<String> list = new ArrayList<>();
 
+            list.add(this.play().get(0));
+            list.add(playable.play().get(0));
+
+            return list;
         }
     }
 
     public static class Guitar extends Instrument {
-        public Guitar() {
+        Guitar() {
             super("Трунь", 2);
         }
     }
 
     public static class Drum extends Instrument {
-        public Drum() {
+        Drum() {
             super("Бац", 3);
         }
     }
 
     public static class Orchestra implements Playable {
-        List<Instrument> list;
+        List<Instrument> instruments = new ArrayList<>();
 
-        public List<Instrument> getList() {
-            return list;
+        public List<Instrument> getInstruments() {
+            return instruments;
         }
 
         public Orchestra(Instrument... instruments) {
-            list.addAll(Arrays.asList(instruments));
+            this.instruments.addAll(List.of(instruments));
         }
 
         @Override
         public List<String> play() {
-            List<String> result = new ArrayList<>();
-
-            for (Instrument i : list) {
-                result.add(i.play().toString());
+            List<String> list = new ArrayList<>();
+            for (Instrument i : instruments) {
+                list.add(i.play().get(0));
             }
-            return result;
+            return list;
         }
 
         @Override
         public List<String> playWith(Playable playable) {
-
+            List<String> list = new ArrayList<>();
+            list.add(play().get(0));
+            list.add(playable.play().get(0));
+            return list;
         }
     }
 
