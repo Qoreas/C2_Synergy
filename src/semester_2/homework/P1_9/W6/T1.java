@@ -32,8 +32,8 @@ public class T1 {
         public List<String> playWith(Playable playable) {
             List<String> list = new ArrayList<>();
 
-            list.add(this.play().get(0));
-            list.add(playable.play().get(0));
+            list.addAll(play());
+            list.addAll(playable.play());
 
             return list;
         }
@@ -74,8 +74,8 @@ public class T1 {
         @Override
         public List<String> playWith(Playable playable) {
             List<String> list = new ArrayList<>();
-            list.add(play().get(0));
-            list.add(playable.play().get(0));
+            list.addAll(play());
+            list.addAll(playable.play());
             return list;
         }
     }
