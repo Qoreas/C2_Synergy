@@ -1,4 +1,4 @@
-package semester1.module3.homework.W1;
+package semester1.module3.homework.W1_Generics;
 
 public abstract class Metal {
     public abstract double getEndurance();
