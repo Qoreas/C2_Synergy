@@ -72,4 +72,16 @@ class MyLinkedListTest {
         System.out.println(list.getNode(0).value());
         Assertions.assertEquals(list.getNode(0).value(), "hi");
     }
+
+    @Test
+    void deleteLast() {
+        MyLinkedList<String> list = new MyLinkedList<>();
+        list.add("hi");
+        list.add("bye");
+        list.add("yoo");
+        list.add("angry");
+        System.out.println(list);
+        list.remove(3);
+        System.out.println(list);
+    }
 }
