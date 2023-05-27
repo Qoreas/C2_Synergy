@@ -23,7 +23,7 @@ class MyLinkedListTest {
         list.add("yoo");
         list.add("abgry");
         System.out.println(list);
-        Assertions.assertEquals(list.getNode(2).value(), "yoo");
+        Assertions.assertEquals(list.getNode(2), "yoo");
     }
 
     @Test
@@ -36,7 +36,7 @@ class MyLinkedListTest {
         System.out.println(list);
         list.remove(2);
         System.out.println(list);
-        Assertions.assertEquals(list.getNode(2).value(), "angry");
+        Assertions.assertEquals(list.getNode(2), "angry");
     }
 
     @Test
@@ -58,7 +58,7 @@ class MyLinkedListTest {
         System.out.println(list);
         list.remove(0);
         System.out.println(list);
-        Assertions.assertEquals(list.head().value(), "bye");
+        Assertions.assertEquals(list.getNode(0), "bye");
     }
 
     @Test
@@ -69,8 +69,8 @@ class MyLinkedListTest {
         list.add("yoo");
         list.add("angry");
         System.out.println(list);
-        System.out.println(list.getNode(0).value());
-        Assertions.assertEquals(list.getNode(0).value(), "hi");
+        System.out.println(list.getNode(0));
+        Assertions.assertEquals(list.getNode(0), "hi");
     }
 
     @Test
